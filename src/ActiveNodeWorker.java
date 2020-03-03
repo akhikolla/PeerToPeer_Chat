@@ -4,9 +4,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ActiveNodeWorker extends Thread {
-       private ActiveNode act_node;
-       private Socket socket;
-       private PrintWriter printwriter;
+       public ActiveNode act_node;
+       public Socket socket;
+       public PrintWriter printwriter;
+       public ActiveNodeWorker() {}
 	   public ActiveNodeWorker(Socket socket,ActiveNode act_node) {
 		   this.act_node = act_node;
 		   this.socket = socket;
