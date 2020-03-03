@@ -9,8 +9,10 @@ public class Peer {
 		char input;
 		String message = "";
 		 ActiveNode active_Node;
+		// Creates a join class object and calls update method in join class
 		Join joinrequest=new Join();
-		 MessageContent note =new MessageContent();
+		MessageContent note =new MessageContent();
+		// Node_Info class gives the information of the node in loading its predecessor and successor availability
 		Node_Info node = new Node_Info();
 		Leave leaves=new Leave();
 		System.out.println("Choose one of the following operations to perform :\n"
@@ -34,7 +36,8 @@ public class Peer {
          if(joinrequest.hasJoined == 1) {
         		System.out.println("Joined sucessfully : choose one\n"
         				+ " M - SENDMESSAGE \n L - LEAVE\n");
-        	 input = sc.next().charAt(0);
+		 //This class is from where the program starts executing. User reads input from the console and chooses from J, M ,L
+        	input = sc.next().charAt(0);
              if(input=='M') {
             	note.Communicate(message,buf_reader,node.LogicalName,active_Node,node);  
              }
