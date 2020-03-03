@@ -1,12 +1,9 @@
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
-//import java.util.HashSet;
-//import java.util.Set;
 
 public class ActiveNode extends Thread {
     Node_Info n_inf = new Node_Info();
-    //n_inf.portno = 23423;
     int portnos;
     private ServerSocket serversocket;
     public ArrayList<ActiveNodeWorker> serverThreadThreads = new ArrayList<ActiveNodeWorker>();
