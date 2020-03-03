@@ -1,9 +1,10 @@
 import java.io.BufferedReader;
 import java.io.StringWriter;
-
 import javax.json.Json;
-
+// Used for passing messages amongst Chat Nodes
 public class MessageContent {
+//Communicate method sends the message to the  nodes which are logically connected to each other 
+//(Active node passes message to predecessor and Successor and Vice-versa).
 public void Communicate(String messages,BufferedReader buf_readere,String username,ActiveNode active_Node,Node_Info node) throws Exception{
 	Leave leaves = new Leave();
 	Peer p = new Peer();
