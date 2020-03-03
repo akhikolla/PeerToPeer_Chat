@@ -1,8 +1,9 @@
 import java.io.BufferedReader;
 import java.net.Socket;
-
+//class to join nodes in the chat
 public class Join{
 	int hasJoined;
+	// Update method updates the list by adding the new nodes which are connected to the active node
 	public void updateListentoPeers(String inputs,BufferedReader buf_reader,String username,ActiveNode active_Node,Node_Info node) throws  Exception{
 		//System.out.println("Peers to receive messages from (s to skip)");
 		String[] inputvalues = inputs.split(" ");
@@ -13,6 +14,7 @@ public class Join{
 		        Socket Predecessor_node = null;
 		        Socket Sucessor_node = null;
 		        try {
+				// Adds predecessor to the active node if there is no predecessor
 		        	if(node.hasPredecessor == 0) {
 		        	Node_Info Predecessor = new Node_Info();
 		        	Predecessor.portno = Integer.valueOf(address[1]);
@@ -21,6 +23,7 @@ public class Join{
 		        	hasJoined = 1;
 		        		new ChatNode(Predecessor_node).start();
 		        	}
+				// Adds sucessor to the active node if there is no sucessor
 		        	else if(node.hasSucessor == 0)  {
 		        		Node_Info Sucessor = new Node_Info();
 		        		Sucessor.portno = Integer.valueOf(address[1]);
