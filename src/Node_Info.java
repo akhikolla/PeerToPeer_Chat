@@ -1,4 +1,4 @@
-
+//connectivity information of nodes
 public class Node_Info {
    int portno;
    String LogicalName;
