@@ -25,23 +25,29 @@ public class Peer {
          node.LogicalName = buf_reader.readLine();
 			System.out.println("Enter portno to be connected");
 		node.portno = Integer.parseInt(buf_reader.readLine());
+	 //This creates an Active node object which is to be considered as the base node object
          active_Node = new ActiveNode(node.portno);
          active_Node.start();
          node.hasPredecessor = 0;
          node.hasSucessor = 0;
          System.out.println("Enter the name and port number to connect");
          String inputs = buf_reader.readLine();
+	 // Update method updates the list by adding the new nodes which are connected to the active node
          joinrequest.updateListentoPeers(inputs,buf_reader, node.LogicalName, active_Node, node);
-        
+         //This class is from where the program starts executing. User reads input from the console and chooses from J, M ,L
          if(joinrequest.hasJoined == 1) {
         		System.out.println("Joined sucessfully : choose one\n"
         				+ " M - SENDMESSAGE \n L - LEAVE\n");
-		 //This class is from where the program starts executing. User reads input from the console and chooses from J, M ,L
+		
         	input = sc.next().charAt(0);
+	     // If user chooses M then it calls Communicate method in message content class
              if(input=='M') {
+	     //Communicate method in message content class sends the message to the  nodes which are logically connected to each other (Active node passes message to predecessor and Successor and Vice-versa).
             	note.Communicate(message,buf_reader,node.LogicalName,active_Node,node);  
              }
+	     // If user chooses L, it means leave class is invoked calling the leave method
              if(input=='L') {
+	     //Leave method is used to remove the connected node and keep the nodes updated about the removal
             	 leaves.leave(node.portno,active_Node);
              }
          }   
