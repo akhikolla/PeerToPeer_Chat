@@ -4,6 +4,7 @@ public class Leave {
 	public void leave( int portno, ActiveNode active_Node) throws Exception {
 		try{
 			boolean flag = true;
+		//Removing the node that enters L
 		while(flag) {
 			for(ActiveNodeWorker ac: active_Node.serverThreadThreads) {
 	        if(ac.act_node.portnos == portno) {    
